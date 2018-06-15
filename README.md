@@ -30,8 +30,8 @@ look like on screen before going back and editing the actual CSS file.
 ## Instructions
 
 - Examine what we have rendering already by opening `index.html` in the browser
-- Create a raised 3D effect for each of our sections using [`box-shadow`][box-shadow] (the green section has already been implemented)
 - Provide a solid [`border`][border] for all of our `<img>` tiles
+- Create a raised 3D effect for each of our sections using [`box-shadow`][box-shadow] (the green section has already been implemented)
 - Provide a [`background`][background] texture for the whole page, using `images/white-wood.jpg`
 - Implement an over-the-top, mind-blowing, [`linear-gradient()`][linear-gradient] and [`:hover`][hover] effect for all of our section titles
 
@@ -53,16 +53,23 @@ which they will align vertically.
 
 #### Help Getting Started
 
-border: 1px solid #aa2222;
-box-shadow: -1px 1px #aa2222, -2px 2px #aa2222, -3px 3px #aa2222, -4px 4px #aa2222, -5px 5px #aa2222;
-background-color: #dd4444;
+For our **border**, use the `border` property. In our example, we made a 1px
+wide solid dark gray line. You may notice this messes up the proportioning of
+your hogs! This is because the border is being considered _outside_ of the image
+elements dimensions. Luckily, there exists an easy remedy for this! The
+`box-sizing` property, with a value of `border-box`, force our `<img>` elements
+to include the border in their dimensions
 
-box-sizing: border-box;
-border: 2px solid #333;
+To implement the `box-shadow` effect, we recommend you look at the `.amiable`
+class and emulate what is being done there for both `.indifferent` as well as
+`.dubious`. Take a look at [`box-shadow`][box-shadow] to see why we have so many
+values for the attribute. We chose to provide a box-shadow that is _slightly_
+darker than the surface, to give the effect of less direct lighting.  
 
-background: url("../images/white-wood.jpg") no-repeat fixed; (our image is not very big so making it 'fixed' allows us to scroll through the content while keeping the foreground fixed). Experiment with how you can change it so the background appears to scroll _with_ the content
-background-size: cover;
+The background can be edited using the [`background`][background] property in our `body, html` section. Use the `white-wood.jpg` texture in our `images/` folder and make sure to use `no-repeat` and set the `background-size` value to `cover`. Following, examine how adding the `fixed` value alters the behavior of scrolling. Choose whichever you like more!
 
+<!-- need to add linear gradient section --> 
+<!-- 
 Implement an over-the-top, mind-blowing, [`linear-gradient()`][linear-gradient] and [`:hover`][hover] effect for all of our section titles
 
 h4.amiable {
@@ -72,14 +79,7 @@ h4.amiable {
     /* #66ee88 */
     #fff
   );
-}
-
-
-
-
-
-
-
+} -->
 
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/box-style-lab' title='Box Style Lab'>Box Style Lab</a> on Learn.co and start learning to code for free.</p>
